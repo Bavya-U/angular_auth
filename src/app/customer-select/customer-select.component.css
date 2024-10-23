@@ -1,0 +1,66 @@
+div {
+    margin-bottom: 20px;
+  }
+  ng-select, ng-auto-complete {
+    width: 300px;
+  }
+  
+  .select-container {
+    max-width: 400px; /* Limit the width of the container */
+    margin: 20px auto; /* Center the container */
+    font-family: Arial, sans-serif; /* Set a font style */
+  }
+  
+  ng-select {
+    width: 100%; /* Make the ng-select take full width */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Padding inside the input */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Transition effect for border color */
+  }
+  
+  ng-select:hover {
+    border-color: #888; /* Change border color on hover */
+  }
+  
+  /* Option card styles */
+  .option-card {
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    padding: 1px;
+    margin: 2px 0;
+    background-color: #f9f9f9; 
+    transition: box-shadow 0.3s; 
+  }
+  
+  .option-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  p {
+    margin-top: 10px;
+    font-size: 16px; 
+    color: #333; 
+  }
+  
+
+  .autocomplete-options {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    position: absolute; /* You may need to adjust the position */
+    width: 100%; /* Matches the width of the input field */
+    z-index: 1000;
+  }
+  
+  .option-card {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .option-card:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+  }
+  

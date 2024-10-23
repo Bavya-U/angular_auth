@@ -1,0 +1,97 @@
+<div class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+<div class="container" *ngIf="!isLoading">
+ 
+ <div class="cerate-form">
+  <form (ngSubmit)="onSubmit()" [formGroup]="commodityForm" class="needs-validation w-50 card p-5 mt-5 border-0 shadow-lg" novalidate>
+    
+    <div class="form-group m-2">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="commodity.name"  
+        name="name"
+        required
+        formControlName="name"  
+      >
+      <div *ngIf="commodityForm.controls['name'].invalid && commodityForm.controls['name'].touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group m-2">
+      <label for="hsCode">HS Code</label>
+      <input
+        type="text"
+        id="hsCode"
+        class="form-control"
+        [(ngModel)]="commodity.hsCode"  
+        name="hsCode"
+        required
+        formControlName="hsCode"  
+      >
+      <div *ngIf="commodityForm.controls['hsCode'].invalid && commodityForm.controls['hsCode'].touched" class="text-danger">
+        HS Code is required.
+      </div>
+    </div>
+
+    <div class="form-group m-2">
+      <label for="isDangerous">Is Dangerous</label>
+      <select
+        id="isDangerous"
+        class="form-control"
+        [(ngModel)]="commodity.isDangerous"  
+        name="isDangerous"
+        formControlName="isDangerous"  
+      >
+        <option [value]="true">Yes</option>
+        <option [value]="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group m-2">
+      <label for="temperatureControlRequired">Temperature Control</label>
+      <select
+        id="temperatureControlRequired"
+        class="form-control"
+        [(ngModel)]="commodity.temperatureControlRequired"  
+        name="temperatureControlRequired"
+        formControlName="temperatureControlRequired"  
+      >
+        <option [value]="true">Yes</option>
+        <option [value]="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group m-2">
+      <label for="status">Status</label>
+      <select
+        id="status"
+        class="form-control"
+        [(ngModel)]="commodity.status" 
+        name="status"
+        required
+        formControlName="status"  
+      >
+        <option value="ACTIVE">Active</option>
+        <option value="INACTIVE">Inactive</option>
+      </select>
+      <div *ngIf="commodityForm.controls['status'].invalid && commodityForm.controls['status'].touched" class="text-danger">
+        Status is required.
+      </div>
+    </div>
+
+    <div class="create-btn mt-2">
+      <button
+        type="submit"
+        class="btn btn-primary w-25"
+        [disabled]="commodityForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

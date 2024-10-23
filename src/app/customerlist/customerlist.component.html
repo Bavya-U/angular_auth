@@ -1,0 +1,34 @@
+<div class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+<div class="container" *ngIf="!isLoading">
+  
+  <div>
+  <h2>Customer Data</h2>
+  <button class="btn btn-secondary" routerLink="/customer/create">+ Add Customer</button>
+</div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>NAME</th>
+        <th>HS CODE</th>
+        <th>STATUS</th>
+        <th class="ms-5 me-5">Edit</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customerArr; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.hsCode }}</td>
+        <td>{{ customer.status }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onEdit(customer.id)">Edit</button> 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

@@ -1,0 +1,93 @@
+<div class="select-container">
+  <h3>Using ng-select</h3>
+  <ng-select
+    [items]="items"
+    bindLabel="name"
+    bindValue="id"
+    [(ngModel)]="selectedNgSelectItem"
+    placeholder="Select a person :"
+  >
+    <ng-template ng-option-tmp let-item="item">
+      <div class="option-card">
+        <h4>{{ item.name }}</h4>
+      </div>
+    </ng-template>
+  </ng-select>
+
+  <p *ngIf="selectedNgSelectItem">Selected ID: {{ selectedNgSelectItem }}</p>
+</div>
+
+<!-- <div>
+  <h3>Using ng-autocomplete</h3>
+  <ng-autocomplete
+    [data]="items"
+    display-property-name="name"
+    value-property-name="id"
+    [(ngModel)]="selectedAutoCompleteItem"
+    placeholder="Search for an item :"
+  >
+    <ng-template let-item="item" ng-option-tmp>
+      <div class="option-card">
+        <h4>{{ item.name }}</h4>
+        <p>ID: {{ item.id }}</p>
+      </div>
+    </ng-template>
+  </ng-autocomplete>
+
+  <p *ngIf="selectedAutoCompleteItem">
+    Selected ID: {{ selectedAutoCompleteItem }}
+  </p>
+</div> -->
+
+
+
+<!-- <div>
+    <h3>Using ng-autocomplete</h3>
+    <ng-autocomplete
+      [data]="filteredItems" 
+      display-property-name="name"
+      value-property-name="id"
+      [(ngModel)]="selectedAutoCompleteItem"
+      
+      placeholder="Search for an item:"
+    >
+      <ng-template let-item="item" ng-option-tmp>
+        <div class="option-card">
+          <h4>{{ item.name }}</h4>
+        </div>
+      </ng-template>
+    </ng-autocomplete>
+  
+
+    <p *ngIf="notFound">No items found.</p>
+  
+    <p *ngIf="selectedAutoCompleteItem">
+      Selected ID: {{ selectedAutoCompleteItem }}
+    </p>
+  </div> -->
+  
+
+  <div class="ng-autocomplete">
+    <ng-autocomplete
+      [data]="countries"                         
+      [(ngModel)]="keyword"                     
+      placeholder="Enter the Country Name"      
+      (selected)="selectEvent($event)"          
+      (inputChanged)="onChangeSearch($event)"    
+      [historyIdentifier]="'countries'"          
+      [itemTemplate]="itemTemplate"              
+      [notFoundTemplate]="notFoundTemplate">      
+    </ng-autocomplete>
+  
+    <!-- Custom template for autocomplete items -->
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.name"></a>
+    </ng-template>
+  
+    <!-- Custom template for when no items are found -->
+    <ng-template #notFoundTemplate let-notFound>
+      <div>No matching countries found</div>
+    </ng-template>
+  </div>
+  
+  

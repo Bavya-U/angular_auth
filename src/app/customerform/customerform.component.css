@@ -1,0 +1,11 @@
+.cerate-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.create-btn{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
